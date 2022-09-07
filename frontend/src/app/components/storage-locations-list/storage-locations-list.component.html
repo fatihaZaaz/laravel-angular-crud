@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-12 col-lg-6">
+    <h1>Storage Locations</h1>
+  </div>
+  <div class="col-12 col-lg-6 text-end">
+    <a routerLink="/storage-locations/create" class="btn btn-success">Add New</a>
+  </div>
+</div>
+
+<hr class="mt-4">
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Location</th>
+      <th scope="col">Assigned</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let location of storageLocations">
+      <th scope="row"><i class="fa-solid fa-warehouse"></i></th>
+      <td>{{location.location}}</td>
+      <td>
+        <div *ngIf="location.assigned; else elseAssigned">
+          Yes
+        </div>        
+        <ng-template #elseAssigned>
+          No
+        </ng-template>
+      </td>
+      <td><a [routerLink]="['/storage-locations/edit', location.id]" class="btn btn-primary">Edit</a></td>
+      <td><button class="btn btn-danger" (click)="deleteStorageLocations(location.id)">Delete</button></td>
+    </tr>
+
+  </tbody>
+</table>

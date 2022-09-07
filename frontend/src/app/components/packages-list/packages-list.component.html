@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-12 col-lg-6">
+    <h1>Packages</h1>
+  </div>
+  <div class="col-12 col-lg-6 text-end">
+    <a routerLink="/packages/create" class="btn btn-success">Add New</a>
+  </div>
+</div>
+
+<hr class="mt-4">
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Package</th>
+      <th scope="col">Client</th>
+      <th scope="col">Status</th>
+      <th scope="col">Shipping Address</th>
+      <th scope="col">Storage Location</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let package of packages">
+      <th scope="row"><i class="fa-solid fa-box"></i></th>
+      <td>{{package.name}}</td>
+      <td>{{package.client}}</td>
+      <td>{{package.status}}</td>
+      <td>{{package.shipping_address}}</td>
+      <td>{{package.storage_locations.location}}</td>
+      <td><a [routerLink]="['/packages/edit', package.id]" class="btn btn-primary">Edit</a></td>
+      <td><button class="btn btn-danger" (click)="deletePackage(package.id)">Delete</button></td>
+    </tr>
+
+  </tbody>
+</table>

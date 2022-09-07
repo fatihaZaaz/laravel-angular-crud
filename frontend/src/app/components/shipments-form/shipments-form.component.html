@@ -1,0 +1,32 @@
+<h1>Shipments</h1>
+
+<hr>
+
+<form>
+
+
+  <div class="mb-3">
+    <label for="package_id" class="form-label">Package</label>
+    <select [(ngModel)]="shipment.package_id" name="package_id" id="package_id" class="form-select" autofocus>
+      <option *ngIf="edit" [value]="shipment.package_id">{{shipment.package.name}}</option>
+      <option *ngFor="let package of packages_not_assigned" [value]="package.package_id">
+        {{ package.package_name }}
+      </option>
+    </select>
+
+  </div>
+
+  <div class="mb-3">
+    <label for="truck_id" class="form-label">Truck - Driver</label>
+    <select [(ngModel)]="shipment.truck_id" name="truck_id" id="truck_id" class="form-select" required>
+      <option *ngFor="let truck of trucks" [value]="truck.id">
+        {{ truck.driver }}
+      </option>
+    </select>
+
+  </div>
+  
+  <button class="btn btn-primary" (click)="edit ? updateShipment() : saveNewShipment()">
+    Save
+  </button>
+</form>

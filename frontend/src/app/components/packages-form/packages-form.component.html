@@ -1,0 +1,79 @@
+<h1>Package</h1>
+
+<hr>
+
+<form>
+  
+  <div class="mb-3">
+    <label for="name" class="form-label">Package Name *</label>
+    <input [(ngModel)]="package.name" name="name" #name="ngModel" type="text" class="form-control" id="name" placeholder="Package Name ..." autofocus required>
+    
+    <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert text-danger">    
+      <div *ngIf="name.errors?.['required']">
+        Name is required.
+      </div>
+    </div>
+  
+</div>
+
+<div class="mb-3">
+  <label for="client" class="form-label">Client *</label>
+  <input [(ngModel)]="package.client" name="client" #client="ngModel" type="text" class="form-control" id="client" placeholder="Client ..." required>
+
+  <div *ngIf="client.invalid && (client.dirty || client.touched)" class="alert text-danger">    
+    <div *ngIf="client.errors?.['required']">
+      Client is required.
+    </div>
+  </div>
+
+</div>
+
+<div class="mb-3" *ngIf="edit">
+  <label for="status" class="form-label">Status *</label>
+  <select [(ngModel)]="package.status" name="status" #status="ngModel" id="status" class="form-select" required>
+    <option  [selected]="package.status==='Packed'">Packed</option>
+    <option  [selected]="package.status==='In Transit'">In Transit</option>
+    <option  [selected]="package.status==='Delivered'">Delivered</option>
+  </select>
+
+  <div *ngIf="status.invalid && (status.dirty || status.touched)" class="alert text-danger">    
+    <div *ngIf="status.errors?.['required']">
+      Status is required.
+    </div>
+  </div>
+
+</div>
+
+<div class="mb-3">
+  <label for="shipping_address" class="form-label">Shipping Address *</label>
+  <input [(ngModel)]="package.shipping_address" name="shipping_address" #shipping_address="ngModel" type="text" class="form-control" id="shipping_address" placeholder="Shipping Address ..." required>
+
+  <div *ngIf="shipping_address.invalid && (shipping_address.dirty || shipping_address.touched)" class="alert text-danger">    
+    <div *ngIf="shipping_address.errors?.['required']">
+      Shipping Address is required.
+    </div>
+  </div>
+
+</div>
+
+<div class="mb-3">
+  <label for="storage_location_id" class="form-label">Storage Location *</label>
+  <select [(ngModel)]="package.storage_location_id" name="storage_location_id" #storage_location_id="ngModel" id="storage_location_id" class="form-select" required>
+    <option *ngIf="edit" [value]="package.storage_location_id">{{package.storage_locations.location}}</option>
+    <option *ngFor="let location of storage_locations" [value]="location.id">
+      {{ location.location }}
+    </option>
+  </select>
+
+  <div *ngIf="storage_location_id.invalid && (storage_location_id.dirty || storage_location_id.touched)" class="alert text-danger">    
+    <div *ngIf="storage_location_id.errors?.['required']">
+      Storage Location is required.
+    </div>
+  </div>
+
+</div>
+
+<button class="btn btn-primary" (click)="edit ? updatePackage() : saveNewPackage()">
+  Save
+</button>
+</form>

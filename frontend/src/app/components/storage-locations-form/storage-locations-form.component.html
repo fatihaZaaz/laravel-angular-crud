@@ -1,0 +1,20 @@
+<h1>Storage Locations</h1>
+
+<hr>
+
+<form>
+  <div class="mb-3">
+    <label for="location" class="form-label">Location *</label>
+    <input [(ngModel)]="storageLocation.location" name="location" #location="ngModel" type="text" class="form-control" id="location" placeholder="Address ..." autofocus required>
+  
+    <div *ngIf="location.invalid && (location.dirty || location.touched)" class="alert text-danger">    
+      <div *ngIf="location.errors?.['required']">
+        Location is required.
+      </div>
+    </div>
+
+  </div>
+  <button class="btn btn-primary" (click)="edit ? updateStorageLocation() : saveNewStorageLocation()">
+    Save
+  </button>
+</form>

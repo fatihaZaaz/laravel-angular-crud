@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-12 col-lg-6">
+    <h1>Shipments</h1>
+  </div>
+  <div class="col-12 col-lg-6 text-end">
+    <a routerLink="/shipments/create" class="btn btn-success">Add New</a>
+  </div>
+</div>
+
+<hr class="mt-4">
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Package</th>
+      <th scope="col">Client</th>
+      <th scope="col">Status</th>
+      <th scope="col">Shipping Address</th>
+      <th scope="col">Driver</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let shipment of shipments">
+      <th scope="row"><i class="fa-solid fa-truck-fast"></i></th>
+      <td>{{shipment.package.name}}</td>
+      <td>{{shipment.package.client}}</td>
+      <td>{{shipment.package.status}}</td>
+      <td>{{shipment.package.shipping_address}}</td>
+      <td>{{shipment.trucks.driver}}</td>
+      <td><a [routerLink]="['/shipments/edit', shipment.id]" class="btn btn-primary">Edit</a></td>
+      <td><button class="btn btn-danger" (click)="deleteShipment(shipment.id)">Delete</button></td>
+    </tr>
+
+  </tbody>
+</table>

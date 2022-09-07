@@ -1,1 +1,7 @@
-"# laravel-angular-logistics-company" 
+# laravel-angular-logistics-company
+
+Laravel/Angular (Logistics Company)
+
+## Backend
+
+## Frontend
