@@ -9,7 +9,7 @@ Frontend: Angular
 Data Base: MySql
 
 
-## instructions for installation and execution
+## Instructions for installation and execution
 
 Clone your project the proyect: git clone https://github.com/trejoscr/laravel-angular-logistics-company.git
 
