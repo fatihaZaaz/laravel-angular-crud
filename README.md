@@ -11,7 +11,7 @@ Data Base: MySql
 
 ## Instructions for installation and execution
 
-Clone your project the proyect: git clone https://github.com/trejoscr/laravel-angular-logistics-company.git
+Clone the proyect: git clone https://github.com/trejoscr/laravel-angular-logistics-company.git
 
 ### Backend
 
