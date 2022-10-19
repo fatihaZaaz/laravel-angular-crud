@@ -1,4 +1,4 @@
-# laravel-angular-Crud
+# laravel-angular-crud
 
 Laravel/Angular (CRUD - Api Res)
 
