@@ -1,6 +1,6 @@
-# laravel-angular-logistics-company
+# laravel-angular-Crud
 
-Laravel/Angular (Logistics Company)
+Laravel/Angular (CRUD - Api Res)
 
 Backend: Laravel
 
