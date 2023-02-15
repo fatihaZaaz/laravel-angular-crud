@@ -4,6 +4,17 @@
 
 <form>
   <div class="mb-3">
+    <label for="name" class="form-label">Truck's name*</label>
+    <input [(ngModel)]="truck.name" name="name" #name="ngModel" type="text" class="form-control" id="name" placeholder="Driver ..." autofocus required>
+
+    <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert text-danger">    
+      <div *ngIf="name.errors?.['required']">
+        name is required.
+      </div>
+    </div>
+
+  </div>
+  <div class="mb-3">
     <label for="driver" class="form-label">Driver*</label>
     <input [(ngModel)]="truck.driver" name="driver" #driver="ngModel" type="text" class="form-control" id="driver" placeholder="Driver ..." autofocus required>
 

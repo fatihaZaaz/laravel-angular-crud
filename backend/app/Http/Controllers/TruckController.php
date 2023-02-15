@@ -28,6 +28,7 @@ class TruckController extends Controller
     {
       $truck = new Truck();
 			$truck->driver = $request->driver;
+			$truck->name = $request->name;
 			$truck->save();
       return $truck;
     }
